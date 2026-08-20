@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owen Tharp — Controls, Robotics &amp; Mechanical Design</title>
+<meta name="description" content="Owen Tharp — engineer in Andersonville, TN. Controls/Systems Director for FRC Team 1466, CAD intern at Formall, builder of a self-balancing Furuta pendulum.">
+<meta name="author" content="Owen Tharp">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://owentharp.com/">
+<!-- Google Search Console ownership proof. Must stay for the property to
+     remain verified — removing it un-verifies the site. -->
+<meta name="google-site-verification" content="pfV67lqpaaSiB71T-4s2QxMn0wiW3flnYl6Jbl3uG1o">
+<meta name="theme-color" content="#0a0c12">
+<meta name="color-scheme" content="dark light">
+
+<!-- Social crawlers do not resolve relative URLs, so these must be absolute. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Owen Tharp">
+<meta property="og:url" content="https://owentharp.com/">
+<meta property="og:title" content="Owen Tharp — Controls, Robotics &amp; Mechanical Design">
+<meta property="og:description" content="Controls/Systems Director for FRC Team 1466, CAD intern at Formall, and builder of a self-balancing Furuta pendulum.">
+<meta property="og:image" content="https://owentharp.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Owen Tharp — controls, robotics and mechanical design">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Owen Tharp — Controls, Robotics &amp; Mechanical Design">
+<meta name="twitter:description" content="Controls/Systems Director for FRC Team 1466, CAD intern at Formall, and builder of a self-balancing Furuta pendulum.">
+<meta name="twitter:image" content="https://owentharp.com/assets/img/og-cover.png">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Structured data: tells search engines this page IS a person, and which
+     topics that person is associated with. This is what ties the site to a
+     search for the name rather than to the words on the page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://owentharp.com/#owen-tharp",
+  "name": "Owen Tharp",
+  "givenName": "Owen",
+  "familyName": "Tharp",
+  "url": "https://owentharp.com/",
+  "image": "https://owentharp.com/assets/img/portrait.jpg",
+  "email": "tharp.owen001@gmail.com",
+  "jobTitle": "Controls/Systems Director, FRC Team 1466",
+  "description": "Engineering student in Andersonville, Tennessee. Controls/Systems Director for FRC Team 1466, CAD engineering intern at Formall Inc., and builder of a self-balancing Furuta rotary inverted pendulum.",
+  "homeLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Andersonville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    }
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Webb School of Knoxville",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Knoxville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    }
+  },
+  "memberOf": [
+    { "@type": "SportsTeam", "name": "FRC Team 1466" },
+    { "@type": "SportsTeam", "name": "FTC Team 9934" }
+  ],
+  "knowsAbout": [
+    "Control systems",
+    "LQR control",
+    "PID control",
+    "Furuta pendulum",
+    "Rotary inverted pendulum",
+    "Embedded systems",
+    "FIRST Robotics Competition",
+    "FRC Team 1466",
+    "FTC Team 9934",
+    "WPILib",
+    "AprilTag localization",
+    "Autonomous robotics",
+    "SolidWorks",
+    "CAD",
+    "Onshape",
+    "Fusion 360 CAM",
+    "CNC machining",
+    "Weldments",
+    "3D printing",
+    "Mechanical design",
+    "Teensy 4.1",
+    "ESP32",
+    "ODrive",
+    "Raspberry Pi",
+    "C++",
+    "Java",
+    "Python",
+    "TypeScript",
+    "React",
+    "PyTorch",
+    "Machine learning"
+  ],
+  "sameAs": [
+    "https://github.com/GrumpyBud"
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://owentharp.com/"
+  }
+}
+</script>
+
+<script>
+  /* Opt in to scroll-reveal only while JS is confirmed healthy. If main.js
+     never finishes loading, the failsafe restores the static page rather than
+     leaving every section at opacity 0. */
+  (function () {
+    var el = document.documentElement;
+    el.classList.add('js-reveal');
+    setTimeout(function () {
+      if (!window.__revealReady) el.classList.remove('js-reveal');
+    }, 2500);
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================== nav ============================== -->
+<nav class="nav" aria-label="Primary">
+  <a class="nav-brand" href="#top">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <rect width="64" height="64" rx="14" fill="currentColor" opacity=".08"/>
+      <path d="M14 44 L42 38" stroke="var(--accent-2)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M42 38 L38 12" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <circle cx="38" cy="11" r="6" fill="var(--accent)"/>
+      <circle cx="14" cy="44" r="4.5" fill="var(--accent-2)"/>
+    </svg>
+    Owen&nbsp;Tharp
+  </a>
+
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#honors">Honors</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="nav-tools">
+    <button class="kbd-hint" data-act="palette" aria-label="Open navigation and command palette">
+      <svg class="kbd-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+      </svg>
+      <span class="kbd-label">Search</span>
+      <span class="kbd-key" aria-hidden="true">⌘K</span>
+    </button>
+    <button class="icon-btn" data-act="theme" aria-label="Toggle light or dark theme" title="Toggle theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================== hero ============================== -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Andersonville, Tennessee</p>
+
+      <h1 class="hero-name">
+        <span class="ln"><span>Owen</span></span>
+        <span class="ln"><span>Tharp</span></span>
+      </h1>
+
+      <p class="hero-role">
+        I build things that have to <strong>hold themselves up</strong> — control
+        systems, competition robots, and machines that go from a CAD model to a
+        welded, wired, working assembly.
+      </p>
+
+      <div class="hero-meta">
+        <a class="chip" href="mailto:tharp.owen001@gmail.com">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          tharp.owen001@gmail.com
+        </a>
+        <a class="chip" href="https://github.com/GrumpyBud" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+          github.com/GrumpyBud
+        </a>
+        <span class="chip">Webb School of Knoxville &middot; Class of 2028</span>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">
+          See the work
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn" href="assets/files/owen-tharp-resume.pdf" download>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download résumé
+        </a>
+      </div>
+    </div>
+
+    <!-- live simulation -->
+    <div class="rig reveal" data-rig>
+      <div class="rig-head">
+        <span class="rig-title"><span class="dot" aria-hidden="true"></span> Furuta pendulum &middot; live</span>
+        <span class="mode-badge" data-out="mode" data-mode="SWING-UP">SWING-UP</span>
+      </div>
+
+      <div class="rig-canvas-wrap">
+        <canvas id="pendulum"></canvas>
+        <p class="rig-hint">Drag the pendulum to disturb it — the controller catches it</p>
+      </div>
+
+      <dl class="telemetry">
+        <div class="tele"><dt>Loop</dt><dd>200<em>Hz</em></dd></div>
+        <div class="tele"><dt>Arm θ</dt><dd data-out="theta">0.0<em>°</em></dd></div>
+        <div class="tele"><dt>Error α</dt><dd data-out="err">0.00<em>°</em></dd></div>
+        <div class="tele"><dt>Torque</dt><dd data-out="tau">0<em>mN·m</em></dd></div>
+      </dl>
+
+      <div class="rig-foot">
+        <button class="mini-btn" data-act="disturb">Disturb</button>
+        <button class="mini-btn" data-act="reset">Reset</button>
+        <button class="mini-btn" data-act="pause" aria-pressed="false">Pause</button>
+        <span class="spacer"></span>
+        <canvas id="scope" width="150" height="34" aria-hidden="true" title="Upright error, last few seconds"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="rail"></span>
+    Scroll
+  </div>
+</header>
+
+<!-- ============================== marquee ============================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>WPILib</span><span>LQR</span><span>SolidWorks</span><span>AprilTag localization</span>
+    <span>ODrive S1</span><span>Teensy 4.1</span><span>Fusion 360 CAM</span><span>Choreo</span>
+    <span>Onshape</span><span>PyTorch</span><span>ESP32</span><span>Command-based Java</span>
+    <span>Weldments</span><span>CNC</span><span>Kalman-style pose fusion</span><span>PID</span>
+  </div>
+</div>
+
+<!-- ============================== metrics ============================== -->
+<section class="section" id="numbers" data-nav-label="By the numbers" aria-label="By the numbers">
+  <div class="wrap">
+    <div class="metrics reveal">
+      <div class="metric">
+        <p class="metric-val"><span data-count="4.58" data-decimals="2">4.58</span></p>
+        <p class="metric-label">Weighted GPA</p>
+        <p class="metric-note">4.00 unweighted</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val"><span data-count="34">34</span></p>
+        <p class="metric-label">ACT composite</p>
+        <p class="metric-note">AP CSA (5), World History (5)</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val"><span data-count="200">200</span><span class="suf">Hz</span></p>
+        <p class="metric-label">Embedded loop</p>
+        <p class="metric-note">Furuta pendulum controller</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val"><span class="suf">±</span><span data-count="0.05" data-decimals="2">0.05</span><span class="suf">m</span></p>
+        <p class="metric-label">Pose accuracy</p>
+        <p class="metric-note">≈0.1 rad heading, in match</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val"><span data-count="99.25" data-decimals="2">99.25</span><span class="suf">%</span></p>
+        <p class="metric-label">Validation accuracy</p>
+        <p class="metric-note">Breast-cancer image classifier</p>
+      </div>
+      <div class="metric">
+        <p class="metric-val"><span data-count="22">22</span><span class="suf">/25</span></p>
+        <p class="metric-label">Autonomous routines scored</p>
+        <p class="metric-note">In competition matches</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== about ============================== -->
+<section class="section" id="about" data-nav-label="About">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="portrait reveal">
+        <img src="assets/img/portrait.jpg" alt="Portrait of Owen Tharp" width="800" height="1000">
+      </div>
+
+      <div class="about-body reveal d1">
+        <p class="eyebrow">Profile</p>
+        <h2 style="font-size:clamp(1.7rem,1.2rem+2.2vw,2.7rem);margin-top:.8rem">
+          Controls and mechanical design, taken all the way to hardware.
+        </h2>
+
+        <p style="margin-top:1.2rem">
+          I'm Owen Tharp, a junior at Webb School of Knoxville, and I spend most of
+          my time on the part of engineering where the model meets the metal. I am
+          <strong>Controls/Systems Director for FRC Team 1466</strong>, where I lead the
+          autonomous stack; over summer 2026 I was a
+          <strong>CAD engineering intern at Formall Inc.</strong>, taking an automated
+          plug-assist platform from an assigned end goal to a released 70-sheet
+          drawing package.
+        </p>
+        <p>
+          My favorite projects are the ones that force the whole loop closed. The
+          <strong>Furuta pendulum</strong> above is the clearest example: I derived the dynamic model
+          from CAD mass properties and test logs, tuned the LQR gains against hardware
+          data, wrote the 200 Hz embedded controller, and then spent the real time
+          debugging it on the bench until it actually stood up.
+        </p>
+        <p>
+          I also like teaching it. I run a five-student programming group on 1466 with
+          eight technical decks I wrote myself, mentored a 15-student cohort at Cisco
+          Hack Camp, and have taught roughly forty lower-school students at Camp Webb.
+        </p>
+
+        <dl class="about-facts">
+          <div><dt>Based in</dt><dd>Andersonville, TN</dd></div>
+          <div><dt>Graduating</dt><dd>May 2028</dd></div>
+          <div><dt>Focus</dt><dd>Controls · CAD · Embedded</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== experience ============================== -->
+<section class="section" id="experience" data-nav-label="Experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">01 — Experience</p>
+      <h2>Where I have shipped real hardware and real code.</h2>
+      <p>From an approved production platform at a thermoforming manufacturer to four
+         seasons owning a competition robot's autonomous stack.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-progress" aria-hidden="true"></div>
+
+      <!-- Formall -->
+      <article class="tl-item reveal">
+        <div class="tl-node" aria-hidden="true"></div>
+        <p class="tl-when">June — August 2026</p>
+        <h3 class="tl-role">CAD Engineering Intern</h3>
+        <p class="tl-org">Formall Inc. <span class="sep">/</span> Clinton, TN</p>
+
+        <ul class="tl-points">
+          <li>Designed an automated twin-sheet plug-assist platform in SolidWorks that
+              carries a <strong>12 ft by 9 ft plastic sheet across an 8 ft bed in 5 seconds</strong>
+              each direction.</li>
+          <li>Replaced a vertical cylinder with a scissor lift after its 22 in stroke
+              exceeded the 14 in height envelope, <strong>winning approval from all 3 engineers</strong>
+              on the CAD team.</li>
+          <li>Sized an 8 ft rail-guided base and <strong>10:1 rack-and-pinion drive</strong> from
+              calculated mechanism loads, gear geometry, and cylinder travel.</li>
+          <li>Produced a <strong>70-sheet drawing package covering 65 parts</strong> — 95% laser-cut
+              sheet and tube, 5% CNC, nearly all welded.</li>
+          <li>Cut initial drawing setup from <strong>2–4 hours to 5–10 minutes</strong> across 3 verified
+              projects with SolidWorks macros for drawing creation, stock sizing, and E3
+              callouts, correcting output by hand.</li>
+          <li>Assembled and calibrated a <strong>Modix BIG-60</strong> large-format printer over 40 hours,
+              then validated it with production test prints.</li>
+        </ul>
+
+        <div class="tl-media">
+          <figure>
+            <img src="assets/img/formall-platform.jpg" alt="Automated twin-sheet plug-assist platform" width="1379" height="862" loading="lazy">
+            <figcaption>Plug-assist platform</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/modix.jpg" alt="Modix BIG-60 large-format 3D printer build" width="1600" height="1000" loading="lazy">
+            <figcaption>Modix BIG-60 commissioning</figcaption>
+          </figure>
+        </div>
+
+        <div class="tl-tags">
+          <span class="chip">SolidWorks</span><span class="chip">Weldments</span>
+          <span class="chip">Production drawings</span><span class="chip">Pneumatics</span>
+          <span class="chip">VBA macros</span><span class="chip">Large-format FDM</span>
+        </div>
+      </article>
+
+      <!-- FRC -->
+      <article class="tl-item reveal">
+        <div class="tl-node" aria-hidden="true"></div>
+        <p class="tl-when">2022 — Present</p>
+        <h3 class="tl-role">Controls/Systems Director</h3>
+        <p class="tl-org">FRC Team 1466 <span class="sep">/</span> Webb School of Knoxville</p>
+
+        <ul class="tl-points">
+          <li>Led the autonomous stack in <strong>WPILib Java</strong> with Choreo trajectories,
+              AprilTag localization, and command-based sequencing.</li>
+          <li>Scored the autonomous routine in <strong>22 of 25 competition matches</strong> while holding
+              pose estimates within <strong>0.05 m and 0.1 rad</strong>.</li>
+          <li>Built a finite-state coordination layer shared by autonomous and
+              driver-controlled routines.</li>
+          <li>Taught a <strong>5-student programming group</strong> using 8 original technical decks and
+              hands-on debugging; also design mechanisms in Onshape, create CAM in
+              Fusion 360, and manufacture CNC parts.</li>
+          <li>Contributed to teams recognized with the <strong>2025 FIRST Engineering Inspiration
+              Award</strong> and <strong>2026 Judges Award</strong>; qualified for the FRC World Championship and
+              competed alongside teams from 35+ countries.</li>
+        </ul>
+
+        <div class="tl-media">
+          <figure>
+            <img src="assets/img/frc-robot.jpg" alt="FRC Team 1466 competition robot" width="1600" height="1000" loading="lazy">
+            <figcaption>Team 1466 robot</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/frc-team.jpg" alt="Team 1466 with their award at the Magnolia Regional" width="1170" height="731" loading="lazy">
+            <figcaption>Magnolia Regional</figcaption>
+          </figure>
+        </div>
+
+        <div class="tl-tags">
+          <span class="chip">WPILib</span><span class="chip">Java</span><span class="chip">Choreo</span>
+          <span class="chip">AprilTag</span><span class="chip">Pose estimation</span>
+          <span class="chip">Command-based</span><span class="chip">Onshape</span>
+        </div>
+      </article>
+
+      <!-- FTC -->
+      <article class="tl-item reveal">
+        <div class="tl-node" aria-hidden="true"></div>
+        <p class="tl-when">Fall 2022 — 2024</p>
+        <h3 class="tl-role">Co-Captain</h3>
+        <p class="tl-org">FTC Team 9934</p>
+
+        <ul class="tl-points">
+          <li>Co-led a <strong>15+ member team</strong> to win the <strong>2024 Tennessee FTC State Championship</strong>.</li>
+          <li>Wrote autonomous and teleoperated control code and coordinated work across
+              CAD, programming, testing, and match strategy.</li>
+        </ul>
+
+        <div class="tl-media">
+          <figure>
+            <img src="assets/img/ftc-team.jpg" alt="FTC Team 9934, 2024 Tennessee State Champions" width="1600" height="1000" loading="lazy">
+            <figcaption>2024 State Champions</figcaption>
+          </figure>
+        </div>
+
+        <div class="tl-tags">
+          <span class="chip">Java</span><span class="chip">Autonomous</span>
+          <span class="chip">Team leadership</span><span class="chip">Match strategy</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== projects ============================== -->
+<section class="section" id="projects" data-nav-label="Projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 — Independent projects</p>
+      <h2>Things I built because I wanted to know if I could.</h2>
+      <p>Each of these went from a blank CAD document or empty repository to working
+         hardware I could put in someone's hands.</p>
+    </div>
+
+    <div class="projects">
+
+      <!-- Furuta -->
+      <article class="project reveal">
+        <div class="project-media">
+          <span class="badge">2026 · Flagship</span>
+          <video src="assets/files/furuta.mp4"
+                 poster="assets/img/furuta-clip-poster.jpg"
+                 width="720" height="1080"
+                 autoplay muted loop playsinline controls preload="metadata"
+                 aria-label="The Furuta pendulum swinging itself up and holding balance"></video>
+        </div>
+        <div class="project-body">
+          <p class="eyebrow">Rotary inverted pendulum</p>
+          <h3 class="project-title">Furuta Pendulum</h3>
+          <p class="project-sub">Teensy 4.1 · ODrive S1 · magnetic encoders · aluminum extrusion</p>
+
+          <ul class="project-points">
+            <li>Achieved <strong>autonomous swing-up and sustained upright balance</strong> with a
+                model-based <strong>LQR controller at 200 Hz</strong>.</li>
+            <li>Derived the dynamic model from <strong>CAD mass properties and test logs</strong>, then
+                tuned LQR gains against hardware data.</li>
+            <li>Designed, fabricated, and wired the mechanism around a <strong>Teensy 4.1, ODrive S1,
+                encoders, and an aluminum frame</strong>.</li>
+            <li>Built a browser interface over UART for <strong>guarded tuning, run control,
+                telemetry, and CSV export</strong>.</li>
+          </ul>
+
+          <div class="project-thumbs">
+            <figure>
+              <img src="assets/img/furuta-rig.jpg" alt="Arm, magnetic encoder and motor mount on the pendulum rig" width="953" height="596" loading="lazy">
+              <figcaption>The rig</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/furuta-ui.jpg" alt="Browser tuning and telemetry interface running the guarded swing-up" width="1600" height="1000" loading="lazy">
+              <figcaption>Tuning interface</figcaption>
+            </figure>
+          </div>
+
+          <div class="project-links">
+            <a class="link-arrow" href="https://github.com/GrumpyBud/Furuta-Pendulum" target="_blank" rel="noopener">
+              Repository
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+            <span class="link-arrow" style="color:var(--faint);cursor:default">
+              The simulation at the top of this page runs the same control law
+            </span>
+          </div>
+
+          <div class="project-tags">
+            <span class="chip">C++</span><span class="chip">LQR</span><span class="chip">Teensy 4.1</span>
+            <span class="chip">ODrive</span><span class="chip">Energy shaping</span>
+            <span class="chip">System ID</span><span class="chip">WebSockets</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cisco Hack Camp -->
+      <article class="project flip reveal">
+        <div class="project-media">
+          <span class="badge">2025 &amp; 2026 · Top project</span>
+          <img src="assets/img/reflex-console.jpg" alt="The Cisco Offensive Summit 2022 ESP32 badge that runs Reflex Console" width="715" height="1072" loading="lazy">
+        </div>
+        <div class="project-body">
+          <p class="eyebrow">Cisco Hack Camp · Knoxville, TN</p>
+          <h3 class="project-title">Reflex Console &amp; Morse Translator</h3>
+          <p class="project-sub">Student mentor · 2025 – 2026 · ESP32 / C++</p>
+
+          <ul class="project-points">
+            <li>Named <strong>top project in both 2025 and 2026</strong>, returning the second year as a
+                mentor to a <strong>15-student cohort</strong>.</li>
+            <li>Built <strong>Reflex Console</strong> on a Cisco Offensive Summit 2022 ESP32 badge with
+                five on-device tests, <strong>BLE session transfer</strong>, and a browser history
+                dashboard.</li>
+            <li>Built a <strong>bidirectional Morse code translator</strong> in C++ with visual, keyboard,
+                and tap input modes over WebSockets.</li>
+          </ul>
+
+          <div class="project-thumbs">
+            <figure>
+              <img src="assets/img/reflex-menu.jpg" alt="Reflex Console test menu on the badge's TFT display" width="286" height="179" loading="lazy">
+              <figcaption>On-device tests</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/reflex-dashboard.jpg" alt="Reflex Console browser dashboard showing saved history and trends" width="790" height="494" loading="lazy">
+              <figcaption>Browser dashboard</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/morse.jpg" alt="ESP32 bidirectional Morse code translator" width="1600" height="1000" loading="lazy">
+              <figcaption>Morse translator, 2025</figcaption>
+            </figure>
+          </div>
+
+          <div class="project-tags">
+            <span class="chip">ESP32</span><span class="chip">C++</span><span class="chip">BLE</span>
+            <span class="chip">WebSockets</span><span class="chip">Mentoring</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Harvard AI -->
+      <article class="project reveal">
+        <div class="project-media">
+          <span class="badge">Summer 2025</span>
+          <img src="assets/img/harvard-curves.png" alt="Training and validation loss and accuracy curves comparing the CNN and ResNet18" width="1600" height="1000" loading="lazy">
+        </div>
+        <div class="project-body">
+          <p class="eyebrow">Harvard AI Bootcamp</p>
+          <h3 class="project-title">Breast-Cancer Image Classifiers</h3>
+          <p class="project-sub">PyTorch · CNN vs. ResNet18 vs. Vision Transformer</p>
+
+          <ul class="project-points">
+            <li>Reached <strong>99.25% validation accuracy</strong> comparing a custom CNN,
+                <strong>ResNet18 transfer learning</strong>, and a <strong>ViT</strong> in PyTorch.</li>
+            <li>Graphed training and validation curves to compare convergence and
+                <strong>diagnose overfitting</strong> across the three architectures.</li>
+          </ul>
+
+          <div class="project-tags">
+            <span class="chip">PyTorch</span><span class="chip">Transfer learning</span>
+            <span class="chip">ViT</span><span class="chip">Augmentation</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== skills ============================== -->
+<section class="section" id="skills" data-nav-label="Skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 — Technical skills</p>
+      <h2>The toolset, and where each piece actually got used.</h2>
+      <p>Hover or focus any item to see the projects it came from.</p>
+    </div>
+
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <h3><span class="num">A</span> CAD &amp; Manufacturing</h3>
+        <div class="skill-list">
+          <span class="skill" data-uses="Formall plug-assist platform · drawing package">SolidWorks</span>
+          <span class="skill" data-uses="Formall welded reach structure">Weldments</span>
+          <span class="skill" data-uses="Formall fabrication package">Production drawings</span>
+          <span class="skill" data-uses="Formall drawing / stock / E3 callout automation">SolidWorks macros</span>
+          <span class="skill" data-uses="FRC 1466 mechanism design">Onshape</span>
+          <span class="skill" data-uses="ACE CNC camp, Fall 2025 · FRC 1466 CNC parts">Fusion 360 CAM</span>
+          <span class="skill" data-uses="Formall plug-assist platform">Laser-cut &amp; welded design</span>
+          <span class="skill" data-uses="FRC 1466 manufacturing">CNC workflows</span>
+          <span class="skill" data-uses="Furuta pendulum · Modix BIG-60 commissioning">FDM 3D printing</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3><span class="num">B</span> Programming &amp; Controls</h3>
+        <div class="skill-list">
+          <span class="skill" data-uses="FRC 1466 · FTC 9934 robot code">Java</span>
+          <span class="skill" data-uses="Harvard AI Bootcamp classifiers">Python</span>
+          <span class="skill" data-uses="Furuta pendulum · Morse translator · Reflex Console">C / C++</span>
+          <span class="skill" data-uses="Browser interfaces for Furuta &amp; Reflex Console">TypeScript</span>
+          <span class="skill" data-uses="Furuta &amp; Reflex Console dashboards">React</span>
+          <span class="skill" data-uses="FRC 1466 autonomous stack">WPILib</span>
+          <span class="skill" data-uses="Furuta pendulum · balances the sim on this page">LQR control</span>
+          <span class="skill" data-uses="FRC 1466 mechanisms · FTC 9934">PID / PIDF</span>
+          <span class="skill" data-uses="FRC 1466 3D localization">AprilTag localization</span>
+          <span class="skill" data-uses="Harvard AI Bootcamp">PyTorch</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3><span class="num">C</span> Hardware &amp; Embedded</h3>
+        <div class="skill-list">
+          <span class="skill" data-uses="Furuta pendulum · 200 Hz control loop">Teensy 4.1</span>
+          <span class="skill" data-uses="Morse translator · Reflex Console">ESP32</span>
+          <span class="skill" data-uses="Vision and coprocessor work">Raspberry Pi</span>
+          <span class="skill" data-uses="Furuta pendulum motor drive">ODrive S1</span>
+          <span class="skill" data-uses="Furuta pendulum arm &amp; pendulum axes">Magnetic encoders</span>
+          <span class="skill" data-uses="Furuta pendulum motor comms">UART protocols</span>
+          <span class="skill" data-uses="Reflex Console session transfer">Bluetooth Low Energy</span>
+          <span class="skill" data-uses="Formall plug-assist rack-and-pinion drive">Pneumatics</span>
+        </div>
+        <p class="skill-readout"><span>Select a skill to trace it back to a project.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== education ============================== -->
+<section class="section" id="education" data-nav-label="Education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 — Education</p>
+      <h2>Webb School of Knoxville</h2>
+    </div>
+
+    <div class="two-col">
+      <div class="card reveal">
+        <h3>Academic record</h3>
+        <p class="sub">Knoxville, TN &middot; Expected graduation May 2028</p>
+        <dl class="card-rows">
+          <div class="card-row"><dt>Weighted GPA</dt><dd>4.58</dd></div>
+          <div class="card-row"><dt>Unweighted GPA</dt><dd>4.00</dd></div>
+          <div class="card-row"><dt>ACT composite</dt><dd>34</dd></div>
+          <div class="card-row"><dt>AP Computer Science A</dt><dd>5</dd></div>
+          <div class="card-row"><dt>AP World History: Modern</dt><dd>5</dd></div>
+        </dl>
+      </div>
+
+      <div class="card reveal d1">
+        <h3>Advanced coursework</h3>
+        <p class="sub">Mathematics, science, and engineering electives</p>
+        <div class="course-list">
+          <span class="chip">AP Calculus BC</span>
+          <span class="chip">AP Chemistry</span>
+          <span class="chip">AP Physics 1</span>
+          <span class="chip">AP Computer Science A</span>
+          <span class="chip">Honors Quantum Computing</span>
+          <span class="chip">Honors Drone Technology &amp; Aviation</span>
+        </div>
+        <dl class="card-rows" style="margin-top:1.6rem">
+          <div class="card-row">
+            <dt>Programs</dt>
+            <dd style="white-space:normal;text-align:right">
+              Harvard AI Bootcamp, Summer 2025<br>
+              ACE CNC Camp, Fall 2025
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== honors ============================== -->
+<section class="section" id="honors" data-nav-label="Honors &amp; outreach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">05 — Honors &amp; outreach</p>
+      <h2>Recognition, and passing it along.</h2>
+    </div>
+
+    <div class="two-col">
+      <div class="honor-list reveal">
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">01</span>
+          <div>
+            <h4>College Board National Recognition Program</h4>
+            <p>School Recognition Award, 2026</p>
+          </div>
+        </div>
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">02</span>
+          <div>
+            <h4>Science Olympiad</h4>
+            <p>1st place, Division C Competitive CAD · 3rd place, Division C Windmill</p>
+          </div>
+        </div>
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">03</span>
+          <div>
+            <h4>TMTA Mathematics Competition</h4>
+            <p>3rd place in Precalculus and in Algebra II</p>
+          </div>
+        </div>
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">04</span>
+          <div>
+            <h4>FIRST Robotics recognition</h4>
+            <p>2025 Engineering Inspiration Award · 2026 Judges Award · World Championship qualifier</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="honor-list reveal d1">
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">05</span>
+          <div>
+            <h4>Camp Webb STEM instruction</h4>
+            <p>Taught approximately 40 lower-school students</p>
+          </div>
+        </div>
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">06</span>
+          <div>
+            <h4>Community STEM volunteering</h4>
+            <p>Pond Gap Elementary and Boys &amp; Girls Clubs of the Tennessee Valley</p>
+          </div>
+        </div>
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">07</span>
+          <div>
+            <h4>FRC 1466 programming instruction</h4>
+            <p>Five-student group taught through 8 original technical decks</p>
+          </div>
+        </div>
+        <div class="honor">
+          <span class="honor-mark" aria-hidden="true">08</span>
+          <div>
+            <h4>Cisco Hack Camp mentoring</h4>
+            <p>Troubleshooting support across a 15-student cohort, 2026</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== contact ============================== -->
+<section class="section" id="contact" data-nav-label="Contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <p class="eyebrow" style="justify-content:center">06 — Contact</p>
+      <h2 style="margin-top:1rem">Let's build something that stands up.</h2>
+      <p>If you want to talk controls, robotics, or mechanical design — or just want
+         to know how the pendulum at the top of this page works — email is the
+         fastest way to reach me.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:tharp.owen001@gmail.com">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          tharp.owen001@gmail.com
+        </a>
+        <a class="btn" href="https://github.com/GrumpyBud" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span data-year>2026</span> Owen Tharp · Andersonville, TN</span>
+    <span>
+      <a href="mailto:tharp.owen001@gmail.com">Email</a> ·
+      <a href="https://github.com/GrumpyBud" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="#top">Back to top</a>
+    </span>
+  </div>
+</footer>
+
+<!-- ============================== command palette ============================== -->
+<div class="palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+  <div class="palette-box">
+    <input type="text" placeholder="Jump to a section, or type a command…" aria-label="Search commands" autocomplete="off" spellcheck="false">
+    <ul role="listbox" aria-label="Commands"></ul>
+  </div>
+</div>
+
+<script src="assets/js/pendulum.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

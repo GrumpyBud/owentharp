@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "resume-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/grump/AppData/Local/Temp/claude/C--Github-ResumeSite/5c7f51b4-343f-4205-a2c5-b196a5d6f53c/scratchpad/serve.js",
+        "C:/Github/ResumeSite",
+        "4988"
+      ],
+      "port": 4988
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# local tooling and notes — not part of the deployed site
+.claude/
+tools/
+README.md
