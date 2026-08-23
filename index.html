@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Owen Tharp — Controls, Robotics &amp; Mechanical Design</title>
 <meta name="description" content="Owen Tharp — engineer in Andersonville, TN. Controls/Systems Director for FRC Team 1466, CAD intern at Formall, builder of a self-balancing Furuta pendulum.">
 <meta name="author" content="Owen Tharp">
@@ -615,7 +615,7 @@
     <div class="section-head reveal">
       <p class="eyebrow">03 — Technical skills</p>
       <h2>The toolset, and where each piece actually got used.</h2>
-      <p>Hover or focus any item to see the projects it came from.</p>
+      <p>Tap or hover any item to see the projects it came from.</p>
     </div>
 
     <div class="skills-grid reveal">
@@ -632,6 +632,7 @@
           <span class="skill" data-uses="FRC 1466 manufacturing">CNC workflows</span>
           <span class="skill" data-uses="Furuta pendulum · Modix BIG-60 commissioning">FDM 3D printing</span>
         </div>
+        <p class="skill-readout"><span>Tap any skill to trace it back to a project.</span></p>
       </div>
 
       <div class="skill-group">
@@ -648,6 +649,7 @@
           <span class="skill" data-uses="FRC 1466 3D localization">AprilTag localization</span>
           <span class="skill" data-uses="Harvard AI Bootcamp">PyTorch</span>
         </div>
+        <p class="skill-readout"><span>Tap any skill to trace it back to a project.</span></p>
       </div>
 
       <div class="skill-group">
@@ -662,7 +664,7 @@
           <span class="skill" data-uses="Reflex Console session transfer">Bluetooth Low Energy</span>
           <span class="skill" data-uses="Formall plug-assist rack-and-pinion drive">Pneumatics</span>
         </div>
-        <p class="skill-readout"><span>Select a skill to trace it back to a project.</span></p>
+        <p class="skill-readout"><span>Tap any skill to trace it back to a project.</span></p>
       </div>
     </div>
   </div>
@@ -811,6 +813,32 @@
   </div>
 </section>
 </main>
+
+<!-- ============================== mobile tab bar ==============================
+     Hidden on desktop; below 700px this replaces the (already hidden) top
+     nav links so every section stays one thumb-tap away. -->
+<nav class="tabbar" aria-label="Quick navigation">
+  <a href="#top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 9.5V20h14V9.5"/></svg>
+    <span>Top</span>
+  </a>
+  <a href="#experience">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+    <span>Work</span>
+  </a>
+  <a href="#projects">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Projects</span>
+  </a>
+  <a href="#skills">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="10" y="10" width="4" height="4"/></svg>
+    <span>Skills</span>
+  </a>
+  <a href="#contact">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+    <span>Contact</span>
+  </a>
+</nav>
 
 <footer class="footer">
   <div class="wrap footer-inner">

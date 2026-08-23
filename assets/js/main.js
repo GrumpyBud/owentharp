@@ -47,7 +47,8 @@
     addEventListener('scroll', onScroll, { passive: true });
   }
 
-  const navLinks = $$('.nav-links a');
+  // both navs highlight together: desktop links and the mobile tab bar
+  const navLinks = $$('.nav-links a, .tabbar a');
   const sections = navLinks
     .map((a) => {
       const id = a.getAttribute('href');
@@ -159,31 +160,36 @@
   });
 
   /* ---------- skills readout ---------- */
-  const readout = $('.skill-readout');
-  if (readout) {
-    // text goes in the inner span; the container only reserves height
-    const body = readout.querySelector('span') || readout;
+  // Tap is the source of truth: iOS Safari does not focus non-form elements
+  // on tap, and hover does not exist on touch. Hover/focus remain optional
+  // accelerators for pointer and keyboard users.
+  $$('.skill[data-uses]').forEach((el) => {
+    const group = el.closest('.skill-group');
+    const readoutEl = group && group.querySelector('.skill-readout');
+    if (!readoutEl) return;
+    const body = readoutEl.querySelector('span') || readoutEl;
     const base = body.textContent;
-    const show = (el) => {
-      const uses = el.dataset.uses;
-      if (!uses) return;
-      body.innerHTML = '<b>' + el.textContent.trim() + '</b> &rarr; ' + uses;
-      readout.classList.add('on');
+
+    const show = () => {
+      body.innerHTML = '<b>' + el.textContent.trim() + '</b> &rarr; ' + el.dataset.uses;
+      readoutEl.classList.add('on');
       el.classList.add('lit');
     };
-    const clear = (el) => {
+    const hide = () => {
       body.textContent = base;
-      readout.classList.remove('on');
-      if (el) el.classList.remove('lit');
+      readoutEl.classList.remove('on');
+      el.classList.remove('lit');
     };
-    $$('.skill[data-uses]').forEach((el) => {
-      el.setAttribute('tabindex', '0');
-      el.addEventListener('mouseenter', () => show(el));
-      el.addEventListener('mouseleave', () => clear(el));
-      el.addEventListener('focus', () => show(el));
-      el.addEventListener('blur', () => clear(el));
+
+    el.setAttribute('tabindex', '0');
+    el.addEventListener('mouseenter', show);
+    el.addEventListener('mouseleave', hide);
+    el.addEventListener('focus', show);
+    el.addEventListener('blur', hide);
+    el.addEventListener('click', () => {
+      if (el.classList.contains('lit')) hide(); else show();
     });
-  }
+  });
 
   /* ---------- autoplaying clips respect reduced motion ---------- */
   const clips = $$('video[autoplay]');
