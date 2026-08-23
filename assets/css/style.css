@@ -498,9 +498,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
   color: var(--muted); margin-top: .4rem;
 }
 .metric-note { font-size: .78rem; color: var(--faint); margin-top: .3rem; }
-/* a lone item in the last row stretches full-width instead of leaving an
-   empty cell next to it */
-.metric:nth-child(odd):last-child { grid-column: 1 / -1; }
 
 /* ---------- about ---------- */
 .about-grid {
@@ -513,6 +510,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
   .about-grid { grid-template-columns: 1fr; }
   /* stacked portrait at full column width reads as a banner; keep it card-sized */
   .portrait { max-width: 280px; }
+  /* below desktop the facts grid can break 2+1; a lone last item stretches
+     full-width instead of leaving an empty cell beside it */
+  .about-facts div:nth-child(odd):last-child { grid-column: 1 / -1; }
 }
 .portrait {
   position: relative;
@@ -543,8 +543,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
   text-transform: uppercase; color: var(--faint);
 }
 .about-facts dd { margin-top: .25rem; font-size: .92rem; }
-/* same lone-item fix as .metric: no stranded empty cell */
-.about-facts div:nth-child(odd):last-child { grid-column: 1 / -1; }
 
 /* ---------- timeline ---------- */
 .timeline { position: relative; }
@@ -972,6 +970,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
 
   /* ---- data grids lock to two-up ---- */
   .metrics { grid-template-columns: repeat(2, 1fr); }
+  /* two columns + an odd count = stranded cell; let the lone one span */
+  .metric:nth-child(odd):last-child { grid-column: 1 / -1; }
   .metric { padding: 1.15rem 1rem; }
   .two-col { grid-template-columns: 1fr; }
 
